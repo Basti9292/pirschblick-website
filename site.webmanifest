@@ -1,0 +1,17 @@
+{
+  "name": "Pirschblick",
+  "short_name": "Pirschblick",
+  "description": "Jagdschein lernen mit echten Bildern, Prüfungsfragen und persönlichem Lernplan.",
+  "lang": "de-DE",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#f6f5f0",
+  "theme_color": "#446347",
+  "icons": [
+    {
+      "src": "/assets/brand/favicon.png",
+      "sizes": "any",
+      "type": "image/png"
+    }
+  ]
+}

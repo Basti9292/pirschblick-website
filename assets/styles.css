@@ -499,3 +499,149 @@ h1 {
   max-width: 780px;
   margin-bottom: 0;
 }
+
+
+.download-section {
+  padding-top: 36px;
+}
+
+.download-heading {
+  margin-bottom: 34px;
+}
+
+.store-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 20px;
+}
+
+.store-card {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 150px;
+  grid-template-areas:
+    "copy qr"
+    "badge qr";
+  align-items: center;
+  gap: 24px 32px;
+  min-height: 300px;
+  padding: 32px;
+  border: 1px solid var(--border);
+  border-radius: var(--radius-card);
+  background: var(--surface);
+  box-shadow: var(--shadow-card);
+}
+
+.store-card-copy {
+  grid-area: copy;
+}
+
+.store-platform {
+  margin-bottom: 8px;
+  color: var(--primary);
+  font-size: 0.82rem;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.store-card h3 {
+  margin-bottom: 10px;
+  color: var(--primary-dark);
+  font-size: 1.45rem;
+  line-height: 1.2;
+}
+
+.store-card-copy p:last-child {
+  margin-bottom: 0;
+  color: var(--text-secondary);
+}
+
+.store-qr {
+  grid-area: qr;
+  width: 150px;
+  height: 150px;
+}
+
+.store-badge-link,
+.store-badge-disabled {
+  grid-area: badge;
+  display: inline-flex;
+  width: fit-content;
+}
+
+.store-badge-link {
+  transition:
+    transform 160ms ease,
+    opacity 160ms ease;
+}
+
+.store-badge-link:hover {
+  transform: translateY(-2px);
+}
+
+.store-badge {
+  width: auto;
+  height: 48px;
+}
+
+.store-card-coming {
+  background: var(--background-alt);
+}
+
+.store-qr-placeholder {
+  grid-area: qr;
+  display: grid;
+  width: 150px;
+  height: 150px;
+  place-items: center;
+  border: 1px dashed rgba(68, 99, 71, 0.28);
+  border-radius: 18px;
+  background: rgba(255, 255, 255, 0.42);
+  color: var(--text-muted);
+  font-size: 0.82rem;
+  font-weight: 700;
+  text-align: center;
+}
+
+.store-badge-disabled {
+  opacity: 0.48;
+}
+
+@media (max-width: 780px) {
+  .store-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .store-card {
+    grid-template-columns: minmax(0, 1fr) 128px;
+    gap: 20px 24px;
+    padding: 26px;
+  }
+
+  .store-qr,
+  .store-qr-placeholder {
+    width: 128px;
+    height: 128px;
+  }
+}
+
+@media (max-width: 520px) {
+  .store-card {
+    grid-template-columns: 1fr;
+    grid-template-areas:
+      "copy"
+      "qr"
+      "badge";
+    justify-items: start;
+  }
+
+  .store-qr,
+  .store-qr-placeholder {
+    width: 144px;
+    height: 144px;
+  }
+
+  .store-badge {
+    height: 46px;
+  }
+}

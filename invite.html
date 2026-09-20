@@ -1,0 +1,107 @@
+<!doctype html>
+<html lang="de">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <title>Einladung zu Pirschblick</title>
+  <meta
+    name="description"
+    content="Öffne deine Einladung zu Pirschblick und starte mit deiner Jagdscheinvorbereitung."
+  />
+  <meta name="robots" content="noindex, nofollow" />
+
+  <link rel="icon" type="image/png" href="./assets/brand/favicon.png" />
+  <link rel="apple-touch-icon" href="./assets/brand/favicon.png" />
+  <link rel="stylesheet" href="./assets/styles.css?v=20260920-1" />
+</head>
+
+<body class="invite-page">
+  <header class="site-header">
+    <a class="brand" href="./index.html" aria-label="Pirschblick Startseite">
+      <img
+        src="./assets/brand/pirschblick-logo.png"
+        alt=""
+        width="44"
+        height="44"
+      />
+      <span>Pirschblick</span>
+    </a>
+  </header>
+
+  <main class="invite-main">
+    <section class="invite-card">
+      <img
+        class="invite-logo"
+        src="./assets/brand/pirschblick-logo.png"
+        alt=""
+        width="88"
+        height="88"
+      />
+
+      <p class="eyebrow">Einladung</p>
+
+      <h1>Willkommen bei Pirschblick.</h1>
+
+      <p class="invite-intro">
+        Du wurdest zu Pirschblick eingeladen. Öffne die App, um deine
+        Einladung abzuschließen.
+      </p>
+
+      <a id="open-app" class="invite-primary-button" href="pirschblick://invite">
+        Pirschblick öffnen
+      </a>
+
+      <div class="invite-divider" aria-hidden="true"></div>
+
+      <div class="invite-download">
+        <h2>Pirschblick noch nicht installiert?</h2>
+        <p>
+          Lade die App herunter und öffne anschließend den Einladungslink
+          erneut.
+        </p>
+
+        <a
+          class="store-badge-link"
+          href="https://apps.apple.com/de/app/pirschblick/id6779660800"
+          target="_blank"
+          rel="noopener noreferrer"
+          aria-label="Pirschblick im Apple App Store öffnen"
+        >
+          <img
+            class="store-badge"
+            src="./assets/stores/app-store-badge.svg"
+            alt="Laden im App Store"
+          />
+        </a>
+
+        <p class="invite-android-note">
+          Die Android-Version folgt in Kürze bei Google Play.
+        </p>
+      </div>
+    </section>
+  </main>
+
+  <script>
+    (() => {
+      const hash = window.location.hash || "";
+      const deepLink = `pirschblick://invite${hash}`;
+      const openButton = document.getElementById("open-app");
+
+      openButton.href = deepLink;
+
+      /*
+       * Der Supabase-Invite liefert die Session im URL-Fragment.
+       * Dieses Fragment wird unverändert an die App weitergereicht.
+       *
+       * Wir versuchen einmal automatisch, Pirschblick zu öffnen.
+       * Ist die App nicht installiert, bleibt die Landingpage als
+       * sicherer Download-Fallback sichtbar.
+       */
+      window.setTimeout(() => {
+        window.location.href = deepLink;
+      }, 250);
+    })();
+  </script>
+</body>
+</html>
